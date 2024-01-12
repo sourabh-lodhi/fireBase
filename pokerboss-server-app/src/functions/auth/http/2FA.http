@@ -1,0 +1,47 @@
+@BASE_URL=http://127.0.0.1:5001/poker-boss-dev/us-central1/auth-twoFA
+
+// Auth 2FA Schema
+// {
+//   "email": string (optional) - Email of the user (should be in email format),
+//   "phone": string (optional) - Phone number of the user (min length: 10),
+//   "otp": string (optional) - OTP code (min length: 4, max length: 4),
+//   "device-id": string (required) - Device ID,
+//   "token": string (required) - Token for authentication
+// }
+
+// ===================== Login - Start ===========================
+
+### login with email 2fa verify 
+
+POST {{ BASE_URL }} HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoic2V0dXAtMmZhIiwidXNlciI6eyJlbWFpbCI6ImphaW5hdHJpdmVkaTlAZ21haWwuY29tIiwiZGV2aWNlLWlkIjoiRkVGQjk2QzgtRDg1OC00NjUyLUFDMkQtNjVERDAyRjM4OEY5Iiwic3RhdHVzIjoiMmZhLXNldHVwIiwidHlwZSI6ImVtYWlsIn0sImZsb3ciOiJyZWdpc3RlciIsImlhdCI6MTY4OTg0NDIxOSwiZXhwIjoxNjg5OTMwNjE5fQ.DBuTbovHUftrna9jRjtialwAonmUfM2MW7jc6rjSMg8",
+    "phone": "+919687206884",
+    "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9"
+}
+
+// ===================== Register - Start ===========================
+
+### register with email send 2fa otp
+
+POST {{ BASE_URL }} HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoic2V0dXAtMmZhIiwidXNlciI6eyJlbWFpbCI6ImphaW5hdHJpdmVkaTlAZ21haWwuY29tIiwiZGV2aWNlLWlkIjoiRkVGQjk2QzgtRDg1OC00NjUyLUFDMkQtNjVERDAyRjM4OEY5Iiwic3RhdHVzIjoiMmZhLXNldHVwIiwidHlwZSI6ImVtYWlsIn0sImZsb3ciOiJyZWdpc3RlciIsImlhdCI6MTY4OTg0NDIxOSwiZXhwIjoxNjg5OTMwNjE5fQ.DBuTbovHUftrna9jRjtialwAonmUfM2MW7jc6rjSMg8",
+    "phone": "+919687206884",
+    "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9"
+}
+
+### register with email, verify 2fa otp
+
+POST {{ BASE_URL }} HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidmVyaWZ5LTJmYSIsInVzZXIiOnsiZW1haWwiOiJqYWluYXRyaXZlZGk5QGdtYWlsLmNvbSIsImRldmljZS1pZCI6IkZFRkI5NkM4LUQ4NTgtNDY1Mi1BQzJELTY1REQwMkYzODhGOSIsInN0YXR1cyI6IjJmYS1zZXR1cCIsInR5cGUiOiJlbWFpbCIsIjJmYSI6InBob25lOis5MTk2ODcyMDY4ODQifSwiZmxvdyI6InJlZ2lzdGVyIiwib3RwIjoiJDJhJDEwJHBPRVpYcGplL1QvYVRsa0NGdlpqbi5GWEdBbndSRWd0NW4zcjRWcDguNTV2Mkd2L3U1cjV1IiwiaWF0IjoxNjg5ODQ1NTI0LCJleHAiOjE2ODk5MzE5MjR9._NU8wh3d9qwiCB-4X2aQ5-22rzLtHA4vLIOQWE1q9Ms",
+    "otp": "1234",
+    "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9"
+}

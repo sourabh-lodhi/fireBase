@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "noEmit": false,
+      "outDir": "./lib",
+      "allowJs": false,
+      "allowSyntheticDefaultImports": true,
+      "experimentalDecorators": true,
+      "noImplicitAny": false,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": false,
+      "sourceMap": true,
+      "moduleResolution": "node",
+      "module": "commonjs",
+      "target": "ES2021",
+      "lib": ["ES2021"],
+      "skipLibCheck": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "baseUrl": ".",
+      "paths": {},
+    },
+    "include": ["./","src/functions","src/middlewares","*.ts"],
+    "exclude": ["node_modules"]
+  }
+  

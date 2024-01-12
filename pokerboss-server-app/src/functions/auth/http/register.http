@@ -1,0 +1,33 @@
+@BASE_URL=http://127.0.0.1:5001/poker-boss-dev/us-central1/auth-register
+
+// Auth Register Schema
+// {
+//   "username": string (optional) - Username (trimmed, min length: 4, max length: 30),
+//   "password": string (optional) - Password (min length: 8),
+//   "device-id": string (required) - Device ID,
+//   "totp": string (optional) - Time-based One-Time Password (TOTP),
+//   "token": string (optional) - Token for authentication
+// }
+//
+
+### auth-register with username and password step 1
+
+POST {{ BASE_URL }}
+Content-Type: application/json
+
+{
+  "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9",
+  "username": "rajat.pillai",
+  "password": "12345678"
+}
+
+### auth-register with validate authenticator app step 2
+
+POST {{ BASE_URL }}
+Content-Type: application/json
+
+{
+  "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9",
+  "token": "",
+  "topt": "167942"
+}

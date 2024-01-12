@@ -1,0 +1,58 @@
+@BASE_URL=http://127.0.0.1:5001/poker-boss-dev/us-central1/auth-otp
+
+// Auth OTP Schema
+// {
+//   "email": string (optional) - Email of the user,
+//   "phone": string (optional) - Phone number of the user (min length: 10),
+//   "otp": string (4 characters) - OTP code (min length: 4, max length: 4),
+//   "token": string (optional) - Token for authentication,
+//   "device-id": string (required) - Device ID
+// }
+
+// Note**: To generate otp either of the email or phone is required 
+
+// ===================== Login - Start ===========================
+
+### 1. login with email sent otp
+
+POST {{ BASE_URL }}
+Content-Type: application/json
+
+{
+  "email": "jainatrivedi9@gmail.com",
+  "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9"
+}
+
+### 2. login with email verify otp
+
+POST {{ BASE_URL }} HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidmVyaWZ5LW90cCIsInVzZXIiOnsiZW1haWwiOiJqYWluYXRyaXZlZGk5QGdtYWlsLmNvbSIsImRldmljZS1pZCI6IkZFRkI5NkM4LUQ4NTgtNDY1Mi1BQzJELTY1REQwMkYzODhGOSIsInN0YXR1cyI6InVudmVyaWZpZWQiLCJ0eXBlIjoiZW1haWwifSwiZmxvdyI6InJlZ2lzdGVyIiwib3RwIjoiJDJhJDEwJG4xOVFzaC5uZGc3di9YcjBvUGE1Y09wekFvSE1RWlljaHVTUWlMWVpITmkyMEJ3Q1dSRDBtIiwiaWF0IjoxNjg5ODQzODMzLCJleHAiOjE2ODk5MzAyMzN9.SFjwca39Hbt-iCaNqT6G3mgSi3FOoPBRNPAvo4p8Vnk",
+    "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9",
+    "otp": "1234"
+}
+
+// ===================== Register - Start ===========================
+
+### 1. register with email send otp
+
+POST {{ BASE_URL }} HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "jainatrivedi9@gmail.com",
+    "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9"
+}
+
+### 2. register with email verify otp
+
+POST {{ BASE_URL }} HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidmVyaWZ5LW90cCIsInVzZXIiOnsiZW1haWwiOiJqYWluYXRyaXZlZGk5QGdtYWlsLmNvbSIsImRldmljZS1pZCI6IkZFRkI5NkM4LUQ4NTgtNDY1Mi1BQzJELTY1REQwMkYzODhGOSIsInN0YXR1cyI6InVudmVyaWZpZWQiLCJ0eXBlIjoiZW1haWwifSwiZmxvdyI6InJlZ2lzdGVyIiwib3RwIjoiJDJhJDEwJG4xOVFzaC5uZGc3di9YcjBvUGE1Y09wekFvSE1RWlljaHVTUWlMWVpITmkyMEJ3Q1dSRDBtIiwiaWF0IjoxNjg5ODQzODMzLCJleHAiOjE2ODk5MzAyMzN9.SFjwca39Hbt-iCaNqT6G3mgSi3FOoPBRNPAvo4p8Vnk",
+    "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9",
+    "otp": "1234"
+}

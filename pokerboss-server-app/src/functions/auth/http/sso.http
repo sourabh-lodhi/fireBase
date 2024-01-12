@@ -1,0 +1,17 @@
+@BASE_URL=http://127.0.0.1:5001/poker-boss-dev/us-central1/auth-sso
+
+// Auth SSO Schema
+// {
+//   "device-id": string (required) - Device ID,
+//   "firebase-token": string (required) - Firebase Token
+// }
+
+### Auth SSO
+
+POST {{ BASE_URL }} HTTP/1.1
+Content-Type: application/json
+
+{
+  "device-id": "your-device-id",
+  "firebase-token": "your-firebase-token"
+}

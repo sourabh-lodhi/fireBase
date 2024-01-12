@@ -1,0 +1,33 @@
+@BASE_URL=http://127.0.0.1:5001/poker-boss-dev/us-central1/auth-reset
+
+// Auth Reset Schema
+// {
+//   "device-id": string (required) - Device ID,
+//   "username": string (min length: 4, max length: 30) - Username (trimmed),
+//   "password": string (min length: 8) - Password,
+//   "token": string - Token for authentication,
+//   "totp": string (min length: 6, max length: 6) - Time-based One-Time Password (TOTP)
+// }
+
+### auth-reset with username and totp step 1
+
+POST {{ BASE_URL }}
+Content-Type: application/json
+
+{
+  "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9",
+  "username": "rajat.pillai",
+  "totp": "123456"
+}
+
+### auth-reset with username token and password step 2
+
+POST {{ BASE_URL }}
+Content-Type: application/json
+
+{
+  "device-id": "FEFB96C8-D858-4652-AC2D-65DD02F388F9",
+  "token": "",
+  "username": "rajat.pillai",
+  "password": "12345678"
+}
